@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Jeffrey Expectacion Website Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfolio of Jeffrey Expectacion, a Unity and C# developer focused on gameplay, WebGL builds, AWS deployment, Addressables, AssetBundles, and production-ready game systems.">
+    <meta property="og:title" content="Jeffrey Expectacion | Unity Game Developer Portfolio">
+    <meta property="og:description" content="Unity and C# portfolio featuring self-made games, work projects, WebGL builds, launchers, AWS deployment, and game systems experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="BG/Anchor.jpg">
+    <title>Jeffrey Expectacion | Unity Game Developer Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 
     <style>
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
 
         body {
             opacity: 0;
@@ -41,6 +49,7 @@
             line-height: 1.6;
             font-family: 'Rajdhani', sans-serif;
             overflow-x: hidden;
+            max-width: 100%;
         }
 
         /* ── PARTICLE CANVAS ── */
@@ -358,6 +367,15 @@
             100% { opacity: 0.5; }
         }
 
+        .section-intro {
+            max-width: 760px;
+            margin: -25px auto 35px;
+            color: var(--text-secondary);
+            text-align: center;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
         /* ── ABOUT ── */
         .about-content {
             display: flex;
@@ -477,66 +495,53 @@
         .skill-card p { color: var(--text-secondary); font-size: 13px; line-height: 1.6; }
 
         /* ── PROJECTS ── */
-        .projects-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 45px;
-            gap: 10px;
-            background: rgba(255,255,255,0.03);
-            border-radius: 6px;
-            padding: 6px;
-            max-width: 380px;
-            margin-left: auto;
-            margin-right: auto;
-            border: 1px solid var(--card-border);
-        }
-
-        .tab-btn {
-            padding: 11px 28px;
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s;
-            font-family: 'Rajdhani', sans-serif;
-            border-radius: 4px;
-            letter-spacing: 1px;
-        }
-
-        .tab-btn.active {
-            color: var(--primary-bg);
-            background: var(--accent-gold);
-            box-shadow: var(--glow-gold);
-        }
-
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
         }
 
-        .tab-content {
-            position: relative;
-            min-height: 600px;
+        .project-summary {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+            margin-bottom: 38px;
         }
 
-        .projects-tab {
+        .summary-card {
+            background: linear-gradient(145deg, rgba(255,215,0,0.08), rgba(0,229,255,0.04));
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary-card::before {
+            content: '';
             position: absolute;
-            width: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
-            transform: translateY(20px);
-            pointer-events: none;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
         }
 
-        .projects-tab.active {
-            position: relative;
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
+        .summary-card strong {
+            display: block;
+            color: var(--accent-gold);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .summary-card span {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .work-projects-section {
+            background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,229,255,0.025), rgba(255,255,255,0.015));
         }
 
         .project-card {
@@ -887,25 +892,35 @@
         #skills.animate .skill-card:nth-child(9) { transition-delay: 0.45s; }
         #skills.animate .skill-card:nth-child(10) { transition-delay: 0.5s; }
 
-        #projects {
+        #self-projects,
+        #work-projects {
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.23,1,0.32,1);
         }
-        #projects.animate { opacity: 1; transform: translateY(0); }
+        #self-projects.animate,
+        #work-projects.animate { opacity: 1; transform: translateY(0); }
 
-        #projects .project-card {
+        #self-projects .project-card,
+        #work-projects .project-card {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
         }
-        #projects.animate .project-card { opacity: 1; transform: translateY(0); }
-        #projects.animate .project-card:nth-child(1) { transition-delay: 0.1s; }
-        #projects.animate .project-card:nth-child(2) { transition-delay: 0.2s; }
-        #projects.animate .project-card:nth-child(3) { transition-delay: 0.3s; }
-        #projects.animate .project-card:nth-child(4) { transition-delay: 0.4s; }
-        #projects.animate .project-card:nth-child(5) { transition-delay: 0.5s; }
-        #projects.animate .project-card:nth-child(6) { transition-delay: 0.6s; }
+        #self-projects.animate .project-card,
+        #work-projects.animate .project-card { opacity: 1; transform: translateY(0); }
+        #self-projects.animate .project-card:nth-child(1),
+        #work-projects.animate .project-card:nth-child(1) { transition-delay: 0.1s; }
+        #self-projects.animate .project-card:nth-child(2),
+        #work-projects.animate .project-card:nth-child(2) { transition-delay: 0.2s; }
+        #self-projects.animate .project-card:nth-child(3),
+        #work-projects.animate .project-card:nth-child(3) { transition-delay: 0.3s; }
+        #self-projects.animate .project-card:nth-child(4),
+        #work-projects.animate .project-card:nth-child(4) { transition-delay: 0.4s; }
+        #self-projects.animate .project-card:nth-child(5),
+        #work-projects.animate .project-card:nth-child(5) { transition-delay: 0.5s; }
+        #self-projects.animate .project-card:nth-child(6),
+        #work-projects.animate .project-card:nth-child(6) { transition-delay: 0.6s; }
 
         #certificates {
             opacity: 0;
@@ -943,16 +958,70 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 38px; }
             .projects-grid { grid-template-columns: 1fr; }
+            .project-summary { grid-template-columns: 1fr; }
             .skills-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .nav-links li { margin-left: 18px; }
+            .nav-links a { font-size: 14px; }
         }
 
         @media (max-width: 576px) {
-            .nav-links { display: none; }
+            header { padding: 12px 0; }
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .logo {
+                font-size: 20px;
+                letter-spacing: 1px;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px 14px;
+                width: 100%;
+            }
+            .nav-links li { margin-left: 0; }
+            .nav-links a {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 150px 0 55px;
+            }
             .hero-content { text-align: center; }
+            .hero-label {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+            .hero h1 {
+                font-size: 34px;
+                line-height: 1.15;
+            }
             .btn-group { display: flex; flex-direction: column; gap: 15px; }
             .btn-outline { margin-left: 0; }
-            .projects-tabs { flex-direction: column; align-items: center; }
-            .tab-btn { width: 100%; text-align: center; }
+            .section-title h2 {
+                font-size: 28px;
+                letter-spacing: 1px;
+            }
+            .section-title h2::before { display: none; }
+            .section-intro {
+                margin-top: -20px;
+                font-size: 15px;
+                text-align: left;
+            }
+            .projects-grid,
+            .certificates-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+            .project-info { padding: 20px 18px 54px; }
+            .project-tags span { font-size: 10px; }
+            .contact-item {
+                align-items: flex-start;
+                word-break: break-word;
+            }
         }
     </style>
 </head>
@@ -969,7 +1038,8 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#self-projects">Self Projects</a></li>
+                    <li><a href="#work-projects">Work Projects</a></li>
                     <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -995,7 +1065,7 @@
 
 Take a look at my portfolio to see some of the projects I've worked on so far</p>
                 <div class="btn-group">
-                    <a href="#projects" class="btn">Project Portfolio</a>
+                    <a href="#self-projects" class="btn">Project Portfolio</a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
@@ -1010,10 +1080,10 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
             </div>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="Jye.jpg" alt="Developer working" style="max-width: 400px; width: 100%; height: auto;">
+                    <img src="Jye.jpg" alt="Jeffrey Expectacion portrait" loading="lazy" style="max-width: 400px; width: 100%; height: auto;">
                 </div>
                 <div class="about-text">
-                    <p>With 2.7 years of experience in Unity development, I have hands-on experience in integrating cloud services with AWS, optimizing mobile and WebGL builds, and managing assets using Unity Addressables and Asset Bundles.</p>
+                    <p>With nearly 3 years of experience in Unity development, I have hands-on experience in integrating cloud services with AWS, optimizing mobile and WebGL builds, and managing assets using Unity Addressables and Asset Bundles.</p>
                     <p>I've worked extensively with API integration and migration, version control systems like GitHub and SourceTree, and front-end technologies (HTML, CSS, JavaScript) to ensure browser compatibility. Leveraging the Unity Profiler, I optimized performance by addressing latency and timing issues, and I implemented Spine animations to create fluid, engaging experiences. My focus on modular, reusable code has helped maintain stability and ease future updates.</p>
                     <p>Before transitioning into software development, I worked as a licensed Marine Engineer on international vessels, where I operated, maintained, and troubleshot complex shipboard systems including engines, pumps, generators, and HVAC equipment. This experience honed my ability to stay calm under pressure, solve problems efficiently, and coordinate with diverse teams—skills I now bring into software development to drive projects forward with precision and reliability.</p>
                 </div>
@@ -1066,7 +1136,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                 <div class="skill-card">
                     <i class="fab fa-aws"></i>
                     <h3>AWS</h3>
-                    <p>Cloud services integration including S3 and Cloudfront.</p>
+                    <p>Cloud services integration including S3 and CloudFront.</p>
                 </div>
                 <div class="skill-card">
                     <i class="fab fa-js"></i>
@@ -1078,26 +1148,40 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                     <h3>HTML/CSS</h3>
                     <p>Responsive web design for Unity WebGL projects and companion websites.</p>
                 </div>
+                <div class="skill-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Automation</h3>
+                    <p>Using AI-assisted workflows to speed up repetitive tasks, documentation, and project support.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
+    <!-- Self Projects Section -->
+    <section id="self-projects" class="section project-section">
         <div class="container">
             <div class="section-title">
-                <h2 data-text="PROJECTS">My Projects</h2>
+                <h2 data-text="SELF PROJECTS">Self Projects</h2>
             </div>
-            <div class="projects-tabs">
-                <button class="tab-btn active" data-tab="self">Self Projects</button>
-                <button class="tab-btn" data-tab="work">Work Projects</button>
+            <p class="section-intro">Personal Unity builds where I practiced gameplay loops, input systems, physics, scene flow, ads, notifications, and publishing. These projects show the foundation behind my production work.</p>
+            <div class="project-summary">
+                <div class="summary-card">
+                    <strong>4 playable builds</strong>
+                    <span>Available demos made to practice complete mechanics from start screen to gameplay loop.</span>
+                </div>
+                <div class="summary-card">
+                    <strong>2D and 3D systems</strong>
+                    <span>Tilemaps, physics, particles, mobile input, collision events, scoring, and scene management.</span>
+                </div>
+                <div class="summary-card">
+                    <strong>Published demos</strong>
+                    <span>Projects include external demo links on itch.io and mobile store listings where available.</span>
+                </div>
             </div>
-            <div class="tab-content">
-                <div class="projects-tab active" id="self-projects">
-                    <div class="projects-grid">
+            <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Gif/legend-of-biringan-gif-2.gif" alt="Animated preview">
+                                <img src="Gif/legend-of-biringan-gif-2.gif" alt="Legend of Biringan gameplay preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Legend of Biringan</h3>
@@ -1109,13 +1193,13 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                     <span>Tile Platformer Game</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://jeffreyexpectacion.itch.io/legend-of-biringan"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://jeffreyexpectacion.itch.io/legend-of-biringan" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
                                 </div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Gif/grab-delivery-gif.gif" alt="Animated preview">
+                                <img src="Gif/grab-delivery-gif.gif" alt="Grab Delivery gameplay preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Grab Delivery</h3>
@@ -1127,13 +1211,13 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                     <span>Unity's Input Manager</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://jeffreyexpectacion.itch.io/grab-delivery"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://jeffreyexpectacion.itch.io/grab-delivery" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
                                 </div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Gif/sangley-point-gif-3.gif" alt="Animated preview">
+                                <img src="Gif/sangley-point-gif-3.gif" alt="Sangley Point gameplay preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Sangley Point</h3>
@@ -1145,13 +1229,13 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                     <span>Airplane Shooting Game</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://jeffreyexpectacion.itch.io/sangley-point"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://jeffreyexpectacion.itch.io/sangley-point" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
                                 </div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Gif/fly-magpie-gif.gif" alt="Animated preview">
+                                <img src="Gif/fly-magpie-gif.gif" alt="Fly Magpie gameplay preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Fly Magpie</h3>
@@ -1163,13 +1247,13 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                     <span>OnTrigger and OnCollision Events</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://jeffreyexpectacion.itch.io/fly-magpie"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://jeffreyexpectacion.itch.io/fly-magpie" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
                                 </div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Gif/projectile-track-gif.gif" alt="Animated preview">
+                                <img src="Gif/projectile-track-gif.gif" alt="Projectile Track gameplay preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Projectile Track</h3>
@@ -1181,14 +1265,14 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                     <span>Unity Notification Updates</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://play.google.com/store/apps/details?id=com.Jye.projectiletrack"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://play.google.com/store/apps/details?id=com.Jye.projectiletrack" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
                                 </div>
                                 <p class="unavailable-text">Currently unavailable</p>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Gif/stray-cat-gif.gif" alt="Animated preview">
+                                <img src="Gif/stray-cat-gif.gif" alt="Stray Cat gameplay preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Stray Cat</h3>
@@ -1200,36 +1284,57 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                     <span>Unity Ads</span>
                                 </div>
                                 <div class="project-links">
-                                    <a href="https://play.google.com/store/apps/details?id=com.jye.straycat"><i class="fas fa-external-link-alt"></i> Demo</a>
+                                    <a href="https://play.google.com/store/apps/details?id=com.jye.straycat" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
                                 </div>
                                 <p class="unavailable-text">Currently unavailable</p>
                             </div>
                         </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="projects-tab" id="work-projects">
-                    <div class="projects-grid">
+    <!-- Work Projects Section -->
+    <section id="work-projects" class="section project-section work-projects-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-text="WORK PROJECTS">Work Projects</h2>
+            </div>
+            <p class="section-intro">Production and team-based projects where I contributed to gameplay, UI systems, API integration, WebGL deployment, launchers, and live build support.</p>
+            <div class="project-summary">
+                <div class="summary-card">
+                    <strong>Production systems</strong>
+                    <span>Gameplay loops, launchers, transaction history, customer service modules, mail systems, and social features.</span>
+                </div>
+                <div class="summary-card">
+                    <strong>Build and deployment</strong>
+                    <span>WebGL builds, Addressables, AssetBundles, AWS, Cloudflare, test environments, and production releases.</span>
+                </div>
+                <div class="summary-card">
+                    <strong>Team collaboration</strong>
+                    <span>Worked with Unity developers, UI/UX designers, backend developers, QA, and project teams.</span>
+                </div>
+            </div>
+            <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Work/basketball.png" alt="Work Project 1">
+                                <img src="Work/basketball.png" alt="Slam Dunk Wilds work project preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Slam Dunk Wilds</h3>
                                 <p>2023</p>
-                                <p>developed as part of a work project, featuring smooth UI animations, vibrant visuals, and classic slot mechanics. I was responsible for implementing the core gameplay loop, integrating DOTween for seamless UI transitions, applying custom shaders for polished visuals, and developing logic to randomize spin results and evaluate paylines.</p>
+                                <p>Developed as part of a work project, featuring smooth UI animations, vibrant visuals, and classic slot mechanics. I was responsible for implementing the core gameplay loop, integrating DOTween for seamless UI transitions, applying custom shaders for polished visuals, and developing logic to randomize spin results and evaluate paylines.</p>
                                 <p class="note-disclaimer">Note: Visual assets shown are custom/AI-generated. The project was inspired by a well-known slot game but is presented with original visuals and title for portfolio purposes.</p>
                                 <div class="project-tags">
-                                    <span>Unity2D</span>
+                                    <span>Unity 2D</span>
                                     <span>Casino</span>
-                                    <span>DoTween</span>
+                                    <span>DOTween</span>
                                 </div>
                                 <div class="project-links"></div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Work/ox.png" alt="Work Project 2">
+                                <img src="Work/ox.png" alt="Wild Ox Wins work project preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Wild Ox Wins</h3>
@@ -1237,7 +1342,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                 <p>I developed UI elements and animations using the DOTween library and integrated Spine animations to enhance the visual experience. Working closely with one teammate, I utilized Git and SourceTree for version control and collaboration. I integrated APIs into Unity by implementing event-driven architecture and singleton patterns for clean, maintainable code. Additionally, I identified and resolved performance bottlenecks and fixed bugs to improve stability. Most importantly, I led the successful migration of the project's API from version 1 to version 2, ensuring a smooth and efficient transition.</p>
                                 <p class="note-disclaimer">Note: Visual assets shown are custom/AI-generated. The project was inspired by a well-known slot game but is presented with original visuals and title for portfolio purposes.</p>
                                 <div class="project-tags">
-                                    <span>Unity2D</span>
+                                    <span>Unity 2D</span>
                                     <span>Spine</span>
                                     <span>API Integration</span>
                                 </div>
@@ -1246,7 +1351,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Work/mw2.jpg" alt="Work Project 3">
+                                <img src="Work/mw2.jpg" alt="Golden Dragon Tiles work project preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Golden Dragon Tiles Part 1 & 2</h3>
@@ -1255,15 +1360,15 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                 <p class="note-disclaimer">Note: Visual assets shown are custom/AI-generated. The project was inspired by a well-known slot game but is presented with original visuals and title for portfolio purposes.</p>
                                 <div class="project-tags">
                                     <span>Unity</span>
-                                    <span>Multiplayer</span>
-                                    <span>AWS GameLift</span>
+                                    <span>AssetBundles</span>
+                                    <span>ASTC/DXT</span>
                                 </div>
                                 <div class="project-links"></div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Work/launchers.gif" alt="Work Project 4-10">
+                                <img src="Work/launchers.gif" alt="Multiple game platform launchers preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Multiple Game Platform Launchers</h3>
@@ -1271,14 +1376,15 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                 <p>I collaborated closely with Unity developers, UI/UX designers, QA, and backend teams to design and implement core launcher mechanics across multiple versions. I integrated the transaction history UI by connecting to backend APIs, and also implemented the customer service module and mail announcement interface. Additionally, I contributed to the software update integration process and actively assisted in identifying and resolving bugs and issues to ensure a smooth and stable user experience. This game launcher was produced in over 8 variants, each tailored with different designs and features based on specific client or project needs.</p>
                                 <div class="project-tags">
                                     <span>Game Launchers</span>
-                                    <span>Collaboration</span>
+                                    <span>API Integration</span>
+                                    <span>UI Modules</span>
                                 </div>
                                 <div class="project-links"></div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Work/aws/serverweb.gif" alt="Work Project 4-10">
+                                <img src="Work/aws/serverweb.gif" alt="AWS and WebGL builds deployment preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>AWS and WebGL Builds</h3>
@@ -1286,30 +1392,29 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                                 <p>I built the games using WebGL with integrated Addressables and AssetBundles to support optimized loading and platform-specific formats. I handled deployment to both test and production environments using AWS and Cloudflare, ensuring smooth distribution and access. I also contributed to team tasks across other game projects, fostering collaboration and shared progress. Additionally, I configured metadata settings to ensure proper file formatting and compatibility for WebGL builds, and assisted with JavaScript, HTML, and CSS to improve the loading format and implement error-catching mechanisms for a more stable and user-friendly experience.</p>
                                 <div class="project-tags">
                                     <span>AWS</span>
-                                    <span>WEBGL BUILDS</span>
-                                    <span>SERVER TEST/PRODUCTION</span>
-                                    <span>WEB DEV TASK</span>
+                                    <span>WebGL Builds</span>
+                                    <span>Test/Production</span>
+                                    <span>Web Dev Tasks</span>
                                 </div>
                                 <div class="project-links"></div>
                             </div>
                         </div>
                         <div class="project-card">
                             <div class="project-img">
-                                <img src="Work/Social_Networking/Socials.gif" alt="Work Project 4-10">
+                                <img src="Work/Social_Networking/Socials.gif" alt="Social networking module preview" loading="lazy">
                             </div>
                             <div class="project-info">
                                 <h3>Social Networking Module</h3>
                                 <p>2026</p>
                                 <p>Developed a social networking module that enables users to create and manage group chats. Implemented functionality for adding and removing members, managing group settings, and handling role-based permissions for administrators and regular users. Collaborated with backend developers to integrate APIs and ensure a smooth and responsive user experience.</p>
                                 <div class="project-tags">
-                                    <span>Game Launchers</span>
-                                    <span>Collaboration</span>
+                                    <span>Group Chat</span>
+                                    <span>Role Permissions</span>
+                                    <span>API Integration</span>
                                 </div>
                                 <div class="project-links"></div>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1323,32 +1428,32 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
             <div class="certificates-grid">
                 <div class="certificate-card">
                     <div class="certificate-img">
-                        <img src="Certificates/2d.png" alt="Animated preview">
+                        <img src="Certificates/2d.png" alt="Unity 2D game development certificate" loading="lazy">
                     </div>
                     <div class="certificate-info">
                         <h3>Unity Game Development 2D Course</h3>
                         <p>Completed a comprehensive course focused on 2D game development using Unity. Learned key concepts such as tilemap systems, physics-based movement, animations using Animator and Animation controllers, UI integration, and game logic implementation using C#. Built multiple 2D gameplay features including player control, enemy behavior, collisions, scene management, and level progression.</p>
-                        <a href="https://www.udemy.com/certificate/UC-5700c1fc-eac6-4c2c-aeef-f2e4e8eb688c/" class="btn">View Certificate</a>
+                        <a href="https://www.udemy.com/certificate/UC-5700c1fc-eac6-4c2c-aeef-f2e4e8eb688c/" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
                     </div>
                 </div>
                 <div class="certificate-card">
                     <div class="certificate-img">
-                        <img src="Certificates/3d.png" alt="Animated preview">
+                        <img src="Certificates/3d.png" alt="Unity 3D game development certificate" loading="lazy">
                     </div>
                     <div class="certificate-info">
                         <h3>Unity Game Development 3D Course</h3>
                         <p>Completed an in-depth course on 3D game development with Unity. Gained hands-on experience with 3D physics, object interactions, lighting and shadows, camera systems, terrain tools, and prefab-based level design. Developed gameplay mechanics such as character movement, jumping, shooting, enemy AI, and collision handling using C#. Also explored 3D animation, and scene transitions.</p>
-                        <a href="https://www.udemy.com/certificate/UC-90747028-a77d-4d10-91dc-3ae1646f580f/" class="btn">View Certificate</a>
+                        <a href="https://www.udemy.com/certificate/UC-90747028-a77d-4d10-91dc-3ae1646f580f/" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
                     </div>
                 </div>
                 <div class="certificate-card">
                     <div class="certificate-img">
-                        <img src="Certificates/mobiledev.png" alt="Animated preview">
+                        <img src="Certificates/mobiledev.png" alt="Unity mobile game development certificate" loading="lazy">
                     </div>
                     <div class="certificate-info">
                         <h3>Unity Mobile Game Development Course</h3>
                         <p>Completed a specialized course focused on developing games for mobile platforms using Unity. Learned best practices for optimizing performance, touch input handling, UI scaling, and device compatibility. Covered integration of platform-specific features such as screen orientation, accelerometer, and mobile ads. Developed and deployed mobile-friendly game mechanics using C# with attention to battery and resource management.</p>
-                        <a href="https://www.udemy.com/certificate/UC-1924b716-ffae-4b95-8eb1-138afbddd305/" class="btn">View Certificate</a>
+                        <a href="https://www.udemy.com/certificate/UC-1924b716-ffae-4b95-8eb1-138afbddd305/" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
                     </div>
                 </div>
             </div>
@@ -1389,8 +1494,8 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
             <div class="footer-content">
                 <a href="#" class="footer-logo">Thank You!</a>
                 <div class="social-links">
-                    <a href="https://ph.linkedin.com/in/jeffrey-expectacion-3a1a37221" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://github.com/anatomy08" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://ph.linkedin.com/in/jeffrey-expectacion-3a1a37221" title="LinkedIn" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/anatomy08" title="GitHub" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1441,7 +1546,9 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
         }
     }
 
-    for (let i = 0; i < 120; i++) particles.push(new Particle());
+    const reduceParticleMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const particleCount = reduceParticleMotion ? 0 : (window.innerWidth <= 576 ? 55 : 120);
+    for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 
     function animateParticles() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1467,7 +1574,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
         }
         requestAnimationFrame(animateParticles);
     }
-    animateParticles();
+    if (!reduceParticleMotion) animateParticles();
     </script>
 
     <!-- TYPING EFFECT -->
@@ -1528,47 +1635,6 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
 
         document.querySelectorAll('.section:not(.hero)').forEach(s => observer.observe(s));
 
-        // Project card stagger on tab switch
-        function staggerCards(container) {
-            container.querySelectorAll('.project-card').forEach((card, i) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, i * 80);
-            });
-        }
-
-        // Tab switching
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabContents = document.querySelectorAll('.projects-tab');
-
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const tabToShow = this.dataset.tab;
-                tabContents.forEach(content => {
-                    content.style.opacity = '0';
-                    content.style.transform = 'translateY(20px)';
-                    setTimeout(() => content.classList.remove('active'), 300);
-                });
-                setTimeout(() => {
-                    const activeTab = document.getElementById(`${tabToShow}-projects`);
-                    if (activeTab) {
-                        activeTab.classList.add('active');
-                        setTimeout(() => {
-                            activeTab.style.opacity = '1';
-                            activeTab.style.transform = 'translateY(0)';
-                            staggerCards(activeTab);
-                        }, 10);
-                    }
-                }, 300);
-            });
-        });
-
         // Header hide/show on scroll
         const header = document.querySelector('header');
         let lastScroll = 0;
@@ -1588,14 +1654,16 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
             });
         });
 
-        // Cursor glow trail
-        const trail = document.createElement('div');
-        trail.style.cssText = `position:fixed;width:8px;height:8px;border-radius:50%;background:rgba(255,215,0,0.6);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity 0.3s;box-shadow:0 0 12px rgba(255,215,0,0.8);`;
-        document.body.appendChild(trail);
-        document.addEventListener('mousemove', e => {
-            trail.style.left = e.clientX + 'px';
-            trail.style.top = e.clientY + 'px';
-        });
+        // Cursor glow trail for desktop pointers only
+        if (window.matchMedia('(pointer: fine)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            const trail = document.createElement('div');
+            trail.style.cssText = `position:fixed;width:8px;height:8px;border-radius:50%;background:rgba(255,215,0,0.6);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:opacity 0.3s;box-shadow:0 0 12px rgba(255,215,0,0.8);`;
+            document.body.appendChild(trail);
+            document.addEventListener('mousemove', e => {
+                trail.style.left = e.clientX + 'px';
+                trail.style.top = e.clientY + 'px';
+            });
+        }
     });
     </script>
 </body>
