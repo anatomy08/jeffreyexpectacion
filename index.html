@@ -501,45 +501,6 @@
             gap: 30px;
         }
 
-        .project-summary {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 18px;
-            margin-bottom: 38px;
-        }
-
-        .summary-card {
-            background: linear-gradient(145deg, rgba(255,215,0,0.08), rgba(0,229,255,0.04));
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 20px;
-            min-height: 120px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .summary-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 2px;
-            background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
-        }
-
-        .summary-card strong {
-            display: block;
-            color: var(--accent-gold);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 18px;
-            margin-bottom: 8px;
-        }
-
-        .summary-card span {
-            color: var(--text-secondary);
-            font-size: 14px;
-            line-height: 1.55;
-        }
-
         .work-projects-section {
             background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(0,229,255,0.025), rgba(255,255,255,0.015));
         }
@@ -971,7 +932,6 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 38px; }
             .projects-grid { grid-template-columns: 1fr; }
-            .project-summary { grid-template-columns: 1fr; }
             .skills-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
             .nav-links li { margin-left: 18px; }
             .nav-links a { font-size: 14px; }
@@ -1051,9 +1011,9 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#self-projects">Self Projects</a></li>
-                    <li><a href="#work-projects">Work Projects</a></li>
                     <li><a href="#ai-projects">AI Development</a></li>
+                    <li><a href="#work-projects">Work Projects</a></li>
+                    <li><a href="#self-projects">Self Projects</a></li>
                     <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1079,7 +1039,7 @@
 
 Take a look at my portfolio to see some of the projects I've worked on so far</p>
                 <div class="btn-group">
-                    <a href="#self-projects" class="btn">Project Portfolio</a>
+                    <a href="#ai-projects" class="btn">Project Portfolio</a>
                     <a href="#contact" class="btn btn-outline">Contact Me</a>
                 </div>
             </div>
@@ -1192,21 +1152,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
             <div class="section-title">
                 <h2 data-text="SELF PROJECTS">Self Projects</h2>
             </div>
-            <p class="section-intro">Personal Unity builds where I practiced gameplay loops, input systems, physics, scene flow, ads, notifications, and publishing. These projects show the foundation behind my production work.</p>
-            <div class="project-summary">
-                <div class="summary-card">
-                    <strong>4 playable builds</strong>
-                    <span>Available demos made to practice complete mechanics from start screen to gameplay loop.</span>
-                </div>
-                <div class="summary-card">
-                    <strong>2D and 3D systems</strong>
-                    <span>Tilemaps, physics, particles, mobile input, collision events, scoring, and scene management.</span>
-                </div>
-                <div class="summary-card">
-                    <strong>Published demos</strong>
-                    <span>Projects include external demo links on itch.io and mobile store listings where available.</span>
-                </div>
-            </div>
+            <p class="section-intro">Personal Unity projects built to practice complete gameplay loops, 2D and 3D systems, mobile input, physics, scoring, scene flow, ads, and publishing playable demos.</p>
             <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-img">
@@ -1328,21 +1274,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
             <div class="section-title">
                 <h2 data-text="WORK PROJECTS">Work Projects</h2>
             </div>
-            <p class="section-intro">Production and team-based projects where I contributed to gameplay, UI systems, API integration, WebGL deployment, launchers, and live build support.</p>
-            <div class="project-summary">
-                <div class="summary-card">
-                    <strong>Production systems</strong>
-                    <span>Gameplay loops, launchers, transaction history, customer service modules, mail systems, and social features.</span>
-                </div>
-                <div class="summary-card">
-                    <strong>Build and deployment</strong>
-                    <span>WebGL builds, Addressables, AssetBundles, AWS, Cloudflare, test environments, and production releases.</span>
-                </div>
-                <div class="summary-card">
-                    <strong>Team collaboration</strong>
-                    <span>Worked with Unity developers, UI/UX designers, backend developers, QA, and project teams.</span>
-                </div>
-            </div>
+            <p class="section-intro">Professional and team projects involving gameplay systems, launchers, UI, API integration, WebGL builds, Addressables, AWS deployment, testing, and production support.</p>
             <div class="projects-grid">
                         <div class="project-card">
                             <div class="project-img">
@@ -1454,21 +1386,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
             <div class="section-title">
                 <h2 data-text="AI DEVELOPMENT">AI-Assisted Development</h2>
             </div>
-            <p class="section-intro">Projects where I owned the product direction, architecture, testing, debugging, and delivery while using AI and MCP-connected development tools to accelerate implementation.</p>
-            <div class="project-summary">
-                <div class="summary-card">
-                    <strong>Human-directed development</strong>
-                    <span>I define the requirements, architecture, workflows, validation rules, and release decisions.</span>
-                </div>
-                <div class="summary-card">
-                    <strong>MCP-connected workflows</strong>
-                    <span>AI tools assist with implementation, debugging, refactoring, documentation, and repetitive development tasks.</span>
-                </div>
-                <div class="summary-card">
-                    <strong>End-to-end delivery</strong>
-                    <span>From concept and prototyping through testing, optimization, builds, deployment, and iteration.</span>
-                </div>
-            </div>
+            <p class="section-intro">My latest projects include a mobile budget app and a Unity runner. I handled planning, system design, testing, debugging, builds, and release preparation, using EAS and MCP tools where they helped.</p>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img">
@@ -1720,6 +1638,16 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
     <!-- SCROLL ANIMATIONS & INTERACTIONS -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Show the newest portfolio work first.
+        const aiProjects = document.getElementById('ai-projects');
+        const workProjects = document.getElementById('work-projects');
+        const selfProjects = document.getElementById('self-projects');
+        if (aiProjects && workProjects && selfProjects) {
+            const projectParent = selfProjects.parentNode;
+            projectParent.insertBefore(aiProjects, selfProjects);
+            projectParent.insertBefore(workProjects, selfProjects);
+        }
+
         document.body.classList.add('loaded');
 
         // Intersection Observer for section animations
