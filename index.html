@@ -893,34 +893,44 @@
         #skills.animate .skill-card:nth-child(10) { transition-delay: 0.5s; }
 
         #self-projects,
-        #work-projects {
+        #work-projects,
+        #ai-projects {
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.23,1,0.32,1);
         }
         #self-projects.animate,
-        #work-projects.animate { opacity: 1; transform: translateY(0); }
+        #work-projects.animate,
+        #ai-projects.animate { opacity: 1; transform: translateY(0); }
 
         #self-projects .project-card,
-        #work-projects .project-card {
+        #work-projects .project-card,
+        #ai-projects .project-card {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
         }
         #self-projects.animate .project-card,
-        #work-projects.animate .project-card { opacity: 1; transform: translateY(0); }
+        #work-projects.animate .project-card,
+        #ai-projects.animate .project-card { opacity: 1; transform: translateY(0); }
         #self-projects.animate .project-card:nth-child(1),
-        #work-projects.animate .project-card:nth-child(1) { transition-delay: 0.1s; }
+        #work-projects.animate .project-card:nth-child(1),
+        #ai-projects.animate .project-card:nth-child(1) { transition-delay: 0.1s; }
         #self-projects.animate .project-card:nth-child(2),
-        #work-projects.animate .project-card:nth-child(2) { transition-delay: 0.2s; }
+        #work-projects.animate .project-card:nth-child(2),
+        #ai-projects.animate .project-card:nth-child(2) { transition-delay: 0.2s; }
         #self-projects.animate .project-card:nth-child(3),
-        #work-projects.animate .project-card:nth-child(3) { transition-delay: 0.3s; }
+        #work-projects.animate .project-card:nth-child(3),
+        #ai-projects.animate .project-card:nth-child(3) { transition-delay: 0.3s; }
         #self-projects.animate .project-card:nth-child(4),
-        #work-projects.animate .project-card:nth-child(4) { transition-delay: 0.4s; }
+        #work-projects.animate .project-card:nth-child(4),
+        #ai-projects.animate .project-card:nth-child(4) { transition-delay: 0.4s; }
         #self-projects.animate .project-card:nth-child(5),
-        #work-projects.animate .project-card:nth-child(5) { transition-delay: 0.5s; }
+        #work-projects.animate .project-card:nth-child(5),
+        #ai-projects.animate .project-card:nth-child(5) { transition-delay: 0.5s; }
         #self-projects.animate .project-card:nth-child(6),
-        #work-projects.animate .project-card:nth-child(6) { transition-delay: 0.6s; }
+        #work-projects.animate .project-card:nth-child(6),
+        #ai-projects.animate .project-card:nth-child(6) { transition-delay: 0.6s; }
 
         #certificates {
             opacity: 0;
@@ -1040,6 +1050,7 @@
                     <li><a href="#skills">Skills</a></li>
                     <li><a href="#self-projects">Self Projects</a></li>
                     <li><a href="#work-projects">Work Projects</a></li>
+                    <li><a href="#ai-projects">AI Development</a></li>
                     <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1151,7 +1162,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                 <div class="skill-card">
                     <i class="fas fa-robot"></i>
                     <h3>AI Automation</h3>
-                    <p>Using AI-assisted workflows to speed up repetitive tasks, documentation, and project support.</p>
+                    <p>Integrates MCP-connected AI development tools into Unity and software workflows for rapid prototyping, debugging, refactoring, architecture implementation, documentation, and production acceleration.</p>
                 </div>
             </div>
         </div>
@@ -1419,6 +1430,77 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
         </div>
     </section>
 
+    <!-- AI-Assisted Development Section -->
+    <section id="ai-projects" class="section project-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-text="AI DEVELOPMENT">AI-Assisted Development</h2>
+            </div>
+            <p class="section-intro">Projects where I owned the product direction, architecture, testing, debugging, and delivery while using AI and MCP-connected development tools to accelerate implementation.</p>
+            <div class="project-summary">
+                <div class="summary-card">
+                    <strong>Human-directed development</strong>
+                    <span>I define the requirements, architecture, workflows, validation rules, and release decisions.</span>
+                </div>
+                <div class="summary-card">
+                    <strong>MCP-connected workflows</strong>
+                    <span>AI tools assist with implementation, debugging, refactoring, documentation, and repetitive development tasks.</span>
+                </div>
+                <div class="summary-card">
+                    <strong>End-to-end delivery</strong>
+                    <span>From concept and prototyping through testing, optimization, builds, deployment, and iteration.</span>
+                </div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Gif/mojyegif.gif" alt="Mojye Budget Tracker app preview" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Mojye: Budget Tracker</h3>
+                        <p>2026 · AI-Assisted Mobile Development</p>
+                        <p>Designed, architected, tested, and prepared a cross-platform budgeting application for Google Play using an AI-assisted development workflow. I defined the product roadmap, financial logic, user flows, data behavior, testing strategy, bug fixes, and release requirements while using AI tools to accelerate implementation.</p>
+                        <div class="project-tags">
+                            <span>React Native</span>
+                            <span>Expo</span>
+                            <span>TypeScript</span>
+                            <span>EAS Build</span>
+                            <span>Google Play</span>
+                            <span>AI-Assisted Development</span>
+                        </div>
+                        <p class="note-disclaimer">Role: Product direction, architecture, feature design, QA, debugging, release preparation, and AI workflow management.</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.jyestudios.mojye" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="AI/robot-runner.png" alt="Robot Runner Unity gameplay preview" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Robot Runner</h3>
+                        <p>2026 · Unity MCP Development</p>
+                        <p>Built an endless runner in Unity using an MCP-connected AI development workflow. I directed the gameplay architecture, procedural environment spawning, track generation, obstacle variety, asset integration, testing, and iteration while using AI assistance to accelerate coding and debugging.</p>
+                        <div class="project-tags">
+                            <span>Unity</span>
+                            <span>C#</span>
+                            <span>MCP Integration</span>
+                            <span>Procedural Spawning</span>
+                            <span>Endless Runner</span>
+                            <span>AI Pair Programming</span>
+                        </div>
+                        <p class="note-disclaimer">Role: Game design, system direction, architecture decisions, testing, debugging, asset selection, and MCP-assisted implementation.</p>
+                        <div class="project-links">
+                            <a href="https://jeffreyexpectacion.itch.io/robot-runner" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Certificates Section -->
     <section id="certificates" class="section">
         <div class="container">
@@ -1499,7 +1581,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Website Portfolio. All rights reserved.</p>
+                <p>&copy; 2026 Website Portfolio. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1584,6 +1666,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
         "Unity Game Developer..",
         "Former Seafarer..",
         "Software Engineer..",
+        "AI-Assisted Developer..",
         "Licensed Marine Engineer.."
     ];
     let count = 0, index = 0, currentText = "", letter = "", isDeleting = false;
