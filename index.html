@@ -858,6 +858,7 @@
 
         #self-projects,
         #work-projects,
+        #backend-cloud-projects,
         #ai-projects {
             opacity: 0;
             transform: translateY(50px);
@@ -865,10 +866,12 @@
         }
         #self-projects.animate,
         #work-projects.animate,
+        #backend-cloud-projects.animate,
         #ai-projects.animate { opacity: 1; transform: translateY(0); }
 
         #self-projects .project-card,
         #work-projects .project-card,
+        #backend-cloud-projects .project-card,
         #ai-projects .project-card {
             opacity: 0;
             transform: translateY(30px);
@@ -876,24 +879,31 @@
         }
         #self-projects.animate .project-card,
         #work-projects.animate .project-card,
+        #backend-cloud-projects.animate .project-card,
         #ai-projects.animate .project-card { opacity: 1; transform: translateY(0); }
         #self-projects.animate .project-card:nth-child(1),
         #work-projects.animate .project-card:nth-child(1),
+        #backend-cloud-projects.animate .project-card:nth-child(1),
         #ai-projects.animate .project-card:nth-child(1) { transition-delay: 0.1s; }
         #self-projects.animate .project-card:nth-child(2),
         #work-projects.animate .project-card:nth-child(2),
+        #backend-cloud-projects.animate .project-card:nth-child(2),
         #ai-projects.animate .project-card:nth-child(2) { transition-delay: 0.2s; }
         #self-projects.animate .project-card:nth-child(3),
         #work-projects.animate .project-card:nth-child(3),
+        #backend-cloud-projects.animate .project-card:nth-child(3),
         #ai-projects.animate .project-card:nth-child(3) { transition-delay: 0.3s; }
         #self-projects.animate .project-card:nth-child(4),
         #work-projects.animate .project-card:nth-child(4),
+        #backend-cloud-projects.animate .project-card:nth-child(4),
         #ai-projects.animate .project-card:nth-child(4) { transition-delay: 0.4s; }
         #self-projects.animate .project-card:nth-child(5),
         #work-projects.animate .project-card:nth-child(5),
+        #backend-cloud-projects.animate .project-card:nth-child(5),
         #ai-projects.animate .project-card:nth-child(5) { transition-delay: 0.5s; }
         #self-projects.animate .project-card:nth-child(6),
         #work-projects.animate .project-card:nth-child(6),
+        #backend-cloud-projects.animate .project-card:nth-child(6),
         #ai-projects.animate .project-card:nth-child(6) { transition-delay: 0.6s; }
 
         #certificates {
@@ -1011,7 +1021,8 @@
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
-                    <li><a href="#ai-projects">AI Development</a></li>
+                    <li><a href="#ai-projects">AI-Augmented</a></li>
+                    <li><a href="#backend-cloud-projects">Back End & Cloud</a></li>
                     <li><a href="#work-projects">Work Projects</a></li>
                     <li><a href="#self-projects">Self Projects</a></li>
                     <li><a href="#certificates">Certificates</a></li>
@@ -1380,11 +1391,11 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
         </div>
     </section>
 
-    <!-- AI-Assisted Development Section -->
+    <!-- AI-Augmented Development Section -->
     <section id="ai-projects" class="section project-section">
         <div class="container">
             <div class="section-title">
-                <h2 data-text="AI DEVELOPMENT">AI-Assisted Development</h2>
+                <h2 data-text="AI-AUGMENTED">AI-Augmented Development</h2>
             </div>
             <p class="section-intro">My latest projects include a mobile budget app and a Unity runner. I handled planning, system design, testing, debugging, builds, and release preparation, using EAS and MCP tools where they helped.</p>
             <div class="projects-grid">
@@ -1394,7 +1405,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                     </div>
                     <div class="project-info">
                         <h3>Mojye: Budget Tracker</h3>
-                        <p>2026 · AI-Assisted Mobile Development</p>
+                        <p>2026 · AI-Augmented Mobile Development</p>
                         <p>Designed, architected, tested, and prepared a cross-platform budgeting application for Google Play using an AI-assisted development workflow. I defined the product roadmap, financial logic, user flows, data behavior, testing strategy, bug fixes, and release requirements while using AI tools to accelerate implementation.</p>
                         <div class="project-tags">
                             <span>React Native</span>
@@ -1402,7 +1413,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                             <span>TypeScript</span>
                             <span>EAS Build</span>
                             <span>Google Play</span>
-                            <span>AI-Assisted Development</span>
+                            <span>AI-Augmented Development</span>
                         </div>
                         <p class="note-disclaimer">Role: Product direction, architecture, feature design, QA, debugging, release preparation, and AI workflow management.</p>
                         <div class="project-links">
@@ -1434,6 +1445,45 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
                         <p class="note-disclaimer">Role: Game design, system direction, architecture decisions, testing, debugging, asset selection, and MCP-assisted implementation.</p>
                         <div class="project-links">
                             <a href="https://jeffreyexpectacion.itch.io/robot-runner" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back End Development and Cloud Section -->
+    <section id="backend-cloud-projects" class="section project-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-text="BACK END & CLOUD">Back End Development and Cloud</h2>
+            </div>
+            <p class="section-intro">API and cloud projects focused on backend architecture, database design, deployment, testing, and production-ready service behavior.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="BG/Anchor.jpg" alt="Job Tracker API backend and cloud project preview" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Job Tracker API</h3>
+                        <p>2026 &middot; ASP.NET Core & Azure</p>
+                        <p>Developed a RESTful job-application tracking API using C#, ASP.NET Core, Entity Framework Core, and DTO validation. Implemented asynchronous CRUD endpoints, input validation, HTTP status handling, EF Core migrations, and a public read-only portfolio endpoint to protect demo data.</p>
+                        <p>Used SQLite for local development and Azure SQL Database for production, deployed through Azure App Service, and managed the production connection securely through Azure configuration.</p>
+                        <div class="project-tags">
+                            <span>C#</span>
+                            <span>.NET 10</span>
+                            <span>ASP.NET Core</span>
+                            <span>EF Core</span>
+                            <span>Azure SQL</span>
+                            <span>Azure App Service</span>
+                            <span>SQLite</span>
+                            <span>xUnit</span>
+                            <span>Swagger</span>
+                            <span>Git</span>
+                        </div>
+                        <p class="note-disclaimer">Role: API design, backend implementation, validation, database setup, Azure deployment, integration testing, and production configuration.</p>
+                        <div class="project-links">
+                            <a href="https://jobtracker-api-jye-2026-cjhdc9ancmh4gadn.southeastasia-01.azurewebsites.net/api/jobapplications" target="_blank" rel="noopener noreferrer"><i class="fas fa-cloud"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -1606,7 +1656,7 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
         "Unity Game Developer..",
         "Former Seafarer..",
         "Software Engineer..",
-        "AI-Assisted Developer..",
+        "AI-Augmented Developer..",
         "Licensed Marine Engineer.."
     ];
     let count = 0, index = 0, currentText = "", letter = "", isDeleting = false;
@@ -1641,11 +1691,13 @@ Take a look at my portfolio to see some of the projects I've worked on so far</p
     document.addEventListener('DOMContentLoaded', function() {
         // Show the newest portfolio work first.
         const aiProjects = document.getElementById('ai-projects');
+        const backendCloudProjects = document.getElementById('backend-cloud-projects');
         const workProjects = document.getElementById('work-projects');
         const selfProjects = document.getElementById('self-projects');
-        if (aiProjects && workProjects && selfProjects) {
+        if (aiProjects && backendCloudProjects && workProjects && selfProjects) {
             const projectParent = selfProjects.parentNode;
             projectParent.insertBefore(aiProjects, selfProjects);
+            projectParent.insertBefore(backendCloudProjects, selfProjects);
             projectParent.insertBefore(workProjects, selfProjects);
         }
 
